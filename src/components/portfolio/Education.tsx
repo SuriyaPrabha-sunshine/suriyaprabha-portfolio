@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { GraduationCap, Sparkles } from "lucide-react";
 import { education } from "@/data/profile";
 import { GlassCard, Modal, Section } from "./primitives";

@@ -65,6 +65,7 @@ export const education = [
     score: "72.8%",
     metric: 72.8,
     metricLabel: "Percentage",
+    current: false,
   },
   {
     id: "hsc",
@@ -74,6 +75,7 @@ export const education = [
     score: "85.33%",
     metric: 85.33,
     metricLabel: "Percentage",
+    current: false,
   },
   {
     id: "bca",
@@ -83,6 +85,7 @@ export const education = [
     score: "CGPA: 8.30",
     metric: 8.3,
     metricLabel: "CGPA",
+    current: false,
   },
   {
     id: "mca",

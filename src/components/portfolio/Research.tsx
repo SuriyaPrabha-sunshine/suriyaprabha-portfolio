@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Award, CalendarDays, Presentation, Trophy, Users } from "lucide-react";
 import { research } from "@/data/profile";
-import { GlassCard, Modal, OutlineButton, PrimaryButton, Section } from "./primitives";
+import { GlassCard, Modal, PrimaryButton, Section } from "./primitives";
 import { useReducedMotion } from "@/lib/portfolio";
 import { cn } from "@/lib/utils";
 
@@ -61,10 +61,10 @@ export function Research() {
                 })}
               </svg>
               <span
-                className="text-primary-foreground absolute top-1/2 left-1/2 flex h-16 w-16 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full font-mono text-xs font-bold shadow-[var(--shadow-glow)]"
+                className="text-primary-foreground absolute top-1/2 left-1/2 flex h-20 w-20 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full text-center font-mono text-[9px] font-bold tracking-[0.14em] shadow-[var(--shadow-glow)]"
                 style={{ backgroundImage: "var(--gradient-hero)" }}
               >
-                AI
+                RESEARCH
               </span>
               {research.nodes.map((n, i) => {
                 const a = (i / research.nodes.length) * Math.PI * 2 - Math.PI / 2;
@@ -184,7 +184,6 @@ export function Research() {
             </li>
           ))}
         </ul>
-        <OutlineButton onClick={() => setClubOpen(false)} className="hidden" aria-hidden="true" />
       </Modal>
     </Section>
   );

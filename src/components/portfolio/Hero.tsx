@@ -53,7 +53,7 @@ export function Hero() {
         }
         return n + 1;
       });
-    }, 320);
+    }, 260);
     return () => clearInterval(int);
   }, [stage]);
 
@@ -119,7 +119,7 @@ export function Hero() {
           </div>
         </div>
 
-        <div className="scene relative">
+        <div className="scene relative overflow-hidden">
           <Desk stage={stage} lines={lines} />
         </div>
       </div>

@@ -113,7 +113,7 @@ function TimelineItem({ item, index }: { item: Edu; index: number }) {
           </div>
           <div className="text-right">
             <p className="font-display text-2xl font-extrabold">
-              <CountUp to={item.metric} run={visible} decimals={item.metricLabel === "CGPA" ? 2 : 2} />
+              <CountUp to={item.metric} run={visible} />
               {item.metricLabel === "Percentage" ? "%" : ""}
             </p>
             <p className="text-muted-foreground font-mono text-[10px] tracking-[0.18em]">
@@ -135,24 +135,28 @@ function TimelineItem({ item, index }: { item: Edu; index: number }) {
   );
 }
 
-function CountUp({ to, run, decimals }: { to: number; run: boolean; decimals: number }) {
+function CountUp({ to, run }: { to: number; run: boolean }) {
   const [n, setN] = useState(0);
-  useState(() => 0);
-  if (typeof window === "undefined") return <>{to.toFixed(decimals)}</>;
-  if (run && n !== to) {
-    // simple rAF ramp, started once per visibility change
-    startRamp(to, setN);
-  }
-  return <>{(run ? n : 0).toFixed(decimals)}</>;
-}
 
-const ramps = new Set<number>();
-function startRamp(to: number, setN: (v: number) => void) {
-  if (ramps.has(to)) return;
-  ramps.add(to);
-  const start = performance.now();
-  const dur = 900;
-  const tick = (now: number) => {
+  useEffect(() => {
+    if (!run) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      setN(to);
+      return;
+    }
+    let frame = 0;
+    const start = performance.now();
+    const tick = (now: number) => {
+      const p = Math.min(1, (now - start) / 900);
+      setN(to * (1 - Math.pow(1 - p, 3)));
+      if (p < 1) frame = requestAnimationFrame(tick);
+    };
+    frame = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(frame);
+  }, [run, to]);
+
+  return <>{n.toFixed(2)}</>;
+}
     const p = Math.min(1, (now - start) / dur);
     setN(to * (1 - Math.pow(1 - p, 3)));
     if (p < 1) requestAnimationFrame(tick);

@@ -113,7 +113,7 @@ export function Research() {
                 ))}
               </span>
               <span
-                className="text-primary-foreground inline-flex h-16 w-16 items-center justify-center rounded-2xl transition-transform duration-700 group-hover:rotate-12"
+                className="inline-flex h-16 w-16 items-center justify-center rounded-2xl text-[var(--ink)] transition-transform duration-700 group-hover:rotate-12"
                 style={{ backgroundImage: "var(--gradient-warm)" }}
               >
                 <Trophy className="h-8 w-8" aria-hidden="true" />

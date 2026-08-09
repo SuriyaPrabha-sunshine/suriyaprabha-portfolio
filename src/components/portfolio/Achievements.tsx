@@ -19,7 +19,7 @@ export function Achievements() {
           <li key={a.title}>
             <GlassCard as="article" className="lift h-full p-6">
               <span
-                className="text-primary-foreground inline-flex h-12 w-12 items-center justify-center rounded-2xl"
+                className="inline-flex h-12 w-12 items-center justify-center rounded-2xl text-[var(--ink)]"
                 style={{ backgroundImage: "var(--gradient-warm)" }}
               >
                 {i === 0 ? (

@@ -15,7 +15,7 @@ export function GradientCursor() {
       setPos({ x: e.clientX, y: e.clientY });
       const target = (e.target as HTMLElement)?.closest<HTMLElement>("[data-cursor]");
       const hoverable = (e.target as HTMLElement)?.closest("button, a, [role='button']");
-      setLabel(target?.dataset.cursor ?? "");
+      setLabel(target?.dataset["cursor"] ?? "");
       setBig(Boolean(target || hoverable));
     };
     window.addEventListener("mousemove", onMove);

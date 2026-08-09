@@ -157,9 +157,3 @@ function CountUp({ to, run }: { to: number; run: boolean }) {
 
   return <>{n.toFixed(2)}</>;
 }
-    const p = Math.min(1, (now - start) / dur);
-    setN(to * (1 - Math.pow(1 - p, 3)));
-    if (p < 1) requestAnimationFrame(tick);
-  };
-  requestAnimationFrame(tick);
-}

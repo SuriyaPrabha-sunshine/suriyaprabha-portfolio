@@ -120,8 +120,9 @@ export function Hero() {
         </div>
 
         <div className="scene relative overflow-hidden">
-          <Desk stage={stage} lines={lines} />
+          <LaptopOS />
         </div>
+
       </div>
 
       {/* Interactive laptop workspace */}

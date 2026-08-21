@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Background } from "@/components/portfolio/Background";
+import { LoadingScreen } from "@/components/portfolio/LoadingScreen";
 import { GradientCursor } from "@/components/portfolio/GradientCursor";
 import { Nav } from "@/components/portfolio/Nav";
 import { Hero } from "@/components/portfolio/Hero";
@@ -34,6 +35,7 @@ export const Route = createFileRoute("/")({
 function Index() {
   return (
     <>
+      <LoadingScreen />
       <Background />
       <GradientCursor />
       <Nav />

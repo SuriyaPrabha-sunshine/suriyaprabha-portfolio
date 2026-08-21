@@ -11,6 +11,7 @@ import {
 import { profile, values } from "@/data/profile";
 import { GlassCard, Section, OutlineButton } from "./primitives";
 import { cn } from "@/lib/utils";
+import { useTilt } from "@/lib/tilt";
 
 const icons: Record<string, LucideIcon> = {
   learn: BookOpen,
@@ -22,6 +23,7 @@ const icons: Record<string, LucideIcon> = {
 
 export function About() {
   const [flipped, setFlipped] = useState(false);
+  const tilt = useTilt<HTMLDivElement>(6);
 
   return (
     <Section
@@ -32,7 +34,13 @@ export function About() {
     >
       <div className="grid gap-6 lg:grid-cols-[1fr_1.1fr]">
         {/* 3D flip profile card */}
-        <div className="scene">
+        <div
+          className="scene"
+          ref={tilt.ref}
+          style={tilt.style}
+          onPointerMove={tilt.handlers.onPointerMove}
+          onPointerLeave={tilt.handlers.onPointerLeave}
+        >
           <button
             onClick={() => setFlipped((v) => !v)}
             aria-pressed={flipped}

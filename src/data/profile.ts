@@ -6,8 +6,8 @@ export const profile = {
   cgpa: "9.0",
   direction: "Web Development • Backend Development • UI Design • Technology & Research",
   email: "suriyaprabha30boopalan@gmail.com",
-  github: "https://github.com/SuriyaPrabha-sunshinee",
-  githubHandle: "SuriyaPrabha-sunshinee",
+  github: "https://github.com/SuriyaPrabha-sunshine",
+  githubHandle: "SuriyaPrabha-sunshine",
   linkedin: "https://www.linkedin.com/in/suriya-prabha-350b9b322",
 };
 

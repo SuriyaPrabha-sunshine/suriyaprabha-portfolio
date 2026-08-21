@@ -26,7 +26,12 @@ const workspaceWindows = [
 
 export function Hero() {
   const reduce = useReducedMotion();
+  const [word, setWord] = useState(0);
+  const [workspace, setWorkspace] = useState(false);
+  const workspaceRef = useRef<HTMLDivElement | null>(null);
+
   useEffect(() => {
+
     if (reduce) return;
     const int = setInterval(() => setWord((w) => (w + 1) % rotatingWords.length), 2000);
     return () => clearInterval(int);

@@ -56,40 +56,38 @@ export function About() {
               }}
             >
               <div
-                className="glass absolute inset-0 flex flex-col overflow-hidden rounded-3xl"
+                className="glass absolute inset-0 flex flex-col items-center justify-between rounded-3xl p-6 text-center"
                 style={{ backfaceVisibility: "hidden" }}
               >
-                <div className="relative h-28 w-full overflow-hidden sm:h-32">
+                <span className="text-primary font-mono text-[10px] tracking-[0.24em]">
+                  PROFILE CARD
+                </span>
+                <div className="relative mt-1">
+                  <span
+                    aria-hidden="true"
+                    className="absolute -inset-1.5 rounded-[1.4rem] opacity-60 blur-md"
+                    style={{ background: "var(--gradient-hero)" }}
+                  />
                   <img
                     src={profileAsset.url}
                     alt={profile.name}
-                    className="h-full w-full object-cover"
-                    style={{ objectPosition: "center 26%" }}
+                    className="relative h-24 w-24 rounded-[1.25rem] border-2 border-white/70 object-cover shadow-[var(--shadow-lift)] sm:h-28 sm:w-28"
+                    style={{ objectPosition: "center 30%" }}
                     loading="lazy"
                   />
-                  <span
-                    aria-hidden="true"
-                    className="absolute inset-0"
-                    style={{
-                      background:
-                        "linear-gradient(to bottom, transparent 55%, color-mix(in oklab, var(--card) 94%, transparent))",
-                    }}
-                  />
                 </div>
-                <div className="flex flex-1 flex-col justify-between p-6">
-                  <div>
-                    <p className="font-display text-2xl font-extrabold sm:text-3xl">{profile.name}</p>
-                    <p className="text-muted-foreground mt-2 text-sm">
-                      {profile.role} • {profile.college}
-                    </p>
-                    <p className="mt-4 font-mono text-xs tracking-[0.16em]">
-                      {profile.period} • CGPA {profile.cgpa}
-                    </p>
-                  </div>
-                  <span className="text-muted-foreground inline-flex items-center gap-2 font-mono text-[10px] tracking-[0.2em]">
-                    <RotateCcw className="h-3 w-3" aria-hidden="true" /> CLICK TO FLIP
-                  </span>
+                <div>
+                  <p className="font-display text-2xl font-extrabold sm:text-3xl">{profile.name}</p>
+                  <p className="text-muted-foreground mt-2 text-sm">
+                    {profile.role} • {profile.college}
+                  </p>
+                  <p className="mt-3 font-mono text-xs tracking-[0.16em]">
+                    {profile.period} • CGPA {profile.cgpa}
+                  </p>
                 </div>
+                <span className="text-muted-foreground inline-flex items-center gap-2 font-mono text-[10px] tracking-[0.2em]">
+                  <RotateCcw className="h-3 w-3" aria-hidden="true" /> CLICK TO FLIP
+                </span>
               </div>
               <div
                 className="absolute inset-0 flex flex-col justify-center gap-3 rounded-3xl p-6 text-white"

@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { ArrowRight, Code2, Database, FolderOpen, BarChart3, Laptop } from "lucide-react";
 import { profile, rotatingWords } from "@/data/profile";
+import profileAsset from "@/assets/profile.jpg.asset.json";
 import { scrollToId, useReducedMotion } from "@/lib/portfolio";
 import { OutlineButton, PrimaryButton } from "./primitives";
 import { LaptopOS } from "./LaptopOS";
@@ -51,9 +52,25 @@ export function Hero() {
     <section id="home" aria-labelledby="hero-heading" className="relative px-5 pt-28 pb-16 sm:px-8">
       <div className="mx-auto grid max-w-6xl items-center gap-12 lg:grid-cols-[1.05fr_1fr]">
         <div>
-          <p className="glass inline-flex items-center gap-2 rounded-full px-4 py-1.5 font-mono text-[10px] tracking-[0.22em]">
-            MCA STUDENT • HOLY CROSS COLLEGE • {profile.period}
-          </p>
+          <div className="flex items-center gap-4">
+            <div className="relative shrink-0">
+              <span
+                aria-hidden="true"
+                className="absolute -inset-1 rounded-full opacity-60 blur-md"
+                style={{ background: "var(--gradient-hero)" }}
+              />
+              <img
+                src={profileAsset.url}
+                alt={`${profile.name} — ${profile.role}`}
+                className="relative h-20 w-20 rounded-full border-2 border-white/70 object-cover shadow-[var(--shadow-lift)] sm:h-24 sm:w-24"
+                style={{ objectPosition: "center 28%" }}
+                loading="eager"
+              />
+            </div>
+            <p className="glass inline-flex items-center gap-2 rounded-full px-4 py-1.5 font-mono text-[10px] tracking-[0.22em]">
+              MCA STUDENT • HOLY CROSS COLLEGE • {profile.period}
+            </p>
+          </div>
           <h1
             id="hero-heading"
             className="mt-6 text-4xl leading-[1.05] font-extrabold sm:text-5xl lg:text-6xl"

@@ -9,6 +9,7 @@ import {
   type LucideIcon,
 } from "lucide-react";
 import { profile, values } from "@/data/profile";
+import profileAsset from "@/assets/profile.jpg.asset.json";
 import { GlassCard, Section, OutlineButton } from "./primitives";
 import { cn } from "@/lib/utils";
 import { useTilt } from "@/lib/tilt";
@@ -55,18 +56,32 @@ export function About() {
               }}
             >
               <div
-                className="glass absolute inset-0 flex flex-col justify-between rounded-3xl p-6"
+                className="glass absolute inset-0 flex flex-col items-center justify-between rounded-3xl p-6 text-center"
                 style={{ backfaceVisibility: "hidden" }}
               >
                 <span className="text-primary font-mono text-[10px] tracking-[0.24em]">
                   PROFILE CARD
                 </span>
+                <div className="relative mt-1">
+                  <span
+                    aria-hidden="true"
+                    className="absolute -inset-1.5 rounded-[1.4rem] opacity-60 blur-md"
+                    style={{ background: "var(--gradient-hero)" }}
+                  />
+                  <img
+                    src={profileAsset.url}
+                    alt={profile.name}
+                    className="relative h-24 w-24 rounded-[1.25rem] border-2 border-white/70 object-cover shadow-[var(--shadow-lift)] sm:h-28 sm:w-28"
+                    style={{ objectPosition: "center 30%" }}
+                    loading="lazy"
+                  />
+                </div>
                 <div>
                   <p className="font-display text-2xl font-extrabold sm:text-3xl">{profile.name}</p>
                   <p className="text-muted-foreground mt-2 text-sm">
                     {profile.role} • {profile.college}
                   </p>
-                  <p className="mt-4 font-mono text-xs tracking-[0.16em]">
+                  <p className="mt-3 font-mono text-xs tracking-[0.16em]">
                     {profile.period} • CGPA {profile.cgpa}
                   </p>
                 </div>

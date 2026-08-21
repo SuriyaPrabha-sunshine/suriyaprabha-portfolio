@@ -2,10 +2,12 @@ import { useState } from "react";
 import { skillGroups, skillNodes } from "@/data/profile";
 import { GlassCard, Modal, Section } from "./primitives";
 import { cn } from "@/lib/utils";
+import { usePointerParallax } from "@/lib/tilt";
 
 export function Skills() {
   const [active, setActive] = useState<(typeof skillNodes)[number] | null>(null);
   const [hovered, setHovered] = useState<string | null>(null);
+  const parallax = usePointerParallax();
 
   const hoveredCategory = skillNodes.find((n) => n.name === hovered)?.category ?? null;
 
@@ -75,6 +77,7 @@ export function Skills() {
                   left: `${50 + Math.cos(a) * r}%`,
                   top: `${50 + Math.sin(a) * r}%`,
                   animationDelay: `${i * 0.3}s`,
+                  translate: `${(parallax.x * (i % 3 === 0 ? 10 : 6)).toFixed(2)}px ${(parallax.y * (i % 2 === 0 ? 8 : 5)).toFixed(2)}px`,
                 }}
               >
                 {n.name}

@@ -9,6 +9,7 @@ import {
   type LucideIcon,
 } from "lucide-react";
 import { profile, values } from "@/data/profile";
+import profileAsset from "@/assets/profile.jpg.asset.json";
 import { GlassCard, Section, OutlineButton } from "./primitives";
 import { cn } from "@/lib/utils";
 import { useTilt } from "@/lib/tilt";
@@ -55,24 +56,40 @@ export function About() {
               }}
             >
               <div
-                className="glass absolute inset-0 flex flex-col justify-between rounded-3xl p-6"
+                className="glass absolute inset-0 flex flex-col overflow-hidden rounded-3xl"
                 style={{ backfaceVisibility: "hidden" }}
               >
-                <span className="text-primary font-mono text-[10px] tracking-[0.24em]">
-                  PROFILE CARD
-                </span>
-                <div>
-                  <p className="font-display text-2xl font-extrabold sm:text-3xl">{profile.name}</p>
-                  <p className="text-muted-foreground mt-2 text-sm">
-                    {profile.role} • {profile.college}
-                  </p>
-                  <p className="mt-4 font-mono text-xs tracking-[0.16em]">
-                    {profile.period} • CGPA {profile.cgpa}
-                  </p>
+                <div className="relative h-28 w-full overflow-hidden sm:h-32">
+                  <img
+                    src={profileAsset.url}
+                    alt={profile.name}
+                    className="h-full w-full object-cover"
+                    style={{ objectPosition: "center 26%" }}
+                    loading="lazy"
+                  />
+                  <span
+                    aria-hidden="true"
+                    className="absolute inset-0"
+                    style={{
+                      background:
+                        "linear-gradient(to bottom, transparent 55%, color-mix(in oklab, var(--card) 94%, transparent))",
+                    }}
+                  />
                 </div>
-                <span className="text-muted-foreground inline-flex items-center gap-2 font-mono text-[10px] tracking-[0.2em]">
-                  <RotateCcw className="h-3 w-3" aria-hidden="true" /> CLICK TO FLIP
-                </span>
+                <div className="flex flex-1 flex-col justify-between p-6">
+                  <div>
+                    <p className="font-display text-2xl font-extrabold sm:text-3xl">{profile.name}</p>
+                    <p className="text-muted-foreground mt-2 text-sm">
+                      {profile.role} • {profile.college}
+                    </p>
+                    <p className="mt-4 font-mono text-xs tracking-[0.16em]">
+                      {profile.period} • CGPA {profile.cgpa}
+                    </p>
+                  </div>
+                  <span className="text-muted-foreground inline-flex items-center gap-2 font-mono text-[10px] tracking-[0.2em]">
+                    <RotateCcw className="h-3 w-3" aria-hidden="true" /> CLICK TO FLIP
+                  </span>
+                </div>
               </div>
               <div
                 className="absolute inset-0 flex flex-col justify-center gap-3 rounded-3xl p-6 text-white"
